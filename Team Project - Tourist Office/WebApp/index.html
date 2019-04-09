@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Διαχείριση Τουριστικού Γραφείου</title>
+<link rel="shortcut icon" href="Sources/icon.png" type="image/x-icon">
+<link rel="icon" href="Sources/icon.png" type="image/x-icon">
+<link rel="stylesheet" type="text/css" href="Style.css">
+</head>
+
+<body>
+<div class="whiteform">
+<center>
+
+	    <img src="Sources/title.png" alt="Title" style="width:100%;height:100%">
+    <br><br>
+
+	<div class="dropdown" align="center">
+		<button onclick="myFunction()" class="dropbtn">Εισαγωγή</button>
+		  <div id="myDropdown" class="dropdown-content">
+			<a href="insert_1.php">Εισαγωγή Πελατών</a>
+			<a href="insert_2.php">Εισαγωγή Προσφορών</a>
+		  </div>
+	</div><br><br><br>
+
+	<div class="dropdown">
+		<button onclick="myFunction1()" class="dropbtn">Ενημέρωση</button>
+		  <div id="myDropdown1" class="dropdown-content">
+			<a href="update_1.php">Ενημέρωση Πελατών</a>
+			<a href="update_2.php">Ενημέρωση Προσφορών</a>
+		  </div>
+	</div><br><br><br>
+
+	<div class="dropdown">
+		<button onclick="myFunction2()" class="dropbtn">Διαγραφή</button>
+		  <div id="myDropdown2" class="dropdown-content">
+			<a href="delete_1.php">Διαγραφή Πελατών</a>
+			<a href="delete_2.php">Διαγραφή Προσφορών</a>
+		  </div>
+	</div><br><br><br>
+
+	<div class="dropdown">
+		<button onclick="myFunction3()" class="dropbtn">Εμφάνιση</button>
+		  <div id="myDropdown3" class="dropdown-content">
+			<a href="select_1.php">Εμφάνιση Πελατών</a>
+			<a href="select_2.php">Εμφάνιση Προσφορών</a>
+		  </div>
+	</div><br><br>
+</center>
+</div>
+
+<script>
+/* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+}
+function myFunction1() {
+    document.getElementById("myDropdown1").classList.toggle("show");
+}
+function myFunction2() {
+    document.getElementById("myDropdown2").classList.toggle("show");
+}
+
+function myFunction3() {
+    document.getElementById("myDropdown3").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+
+</script>
+<div class="footer"><p>Copyright © 2018 by Ομάδα 11</p></div>
+</body>
+</html>
