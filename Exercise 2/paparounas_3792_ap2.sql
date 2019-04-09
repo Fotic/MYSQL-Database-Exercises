@@ -1,0 +1,111 @@
+CREATE DATABASE Erg2;
+USE Erg2;
+
+CREATE TABLE CUSTOMER(
+	CstId INT NOT NULL,
+    CstName VARCHAR(50) NOT NULL,
+    CstAge DECIMAL(3,1) NOT NULL,
+    PRIMARY KEY (CstId)
+);
+
+CREATE TABLE ROOM(
+	RmId INT NOT NULL,
+    RmName VARCHAR(200) NOT NULL,
+    RmSize DECIMAL(3,1) NOT NULL,
+    PRIMARY KEY (RmId)
+);
+
+INSERT INTO CUSTOMER VALUES
+			(1,'Theodorou Giannis',27),
+			(2,'Xristakidis Takis',65),
+			(3,'Augerinou Maria',52),
+			(4,'Makaridis Nick',NULL),
+			(5,'Ioannidis Thrasivoulos',32);            
+
+INSERT INTO ROOM VALUES
+			(1,'Sofita',30.2),
+			(2,'2ari',40.9),
+			(3,'4ari',60.1);
+
+SHOW TABLES;
+SELECT * FROM CUSTOMER;
+SELECT * FROM ROOM;
+
+-- Erot 1:
+ALTER TABLE ROOM MODIFY RmSize DECIMAL(5,2);
+
+DESCRIBE ROOM;
+
+-- Erot 2:
+INSERT INTO ROOM VALUES
+			(4,'Pantheon',100);
+            
+SELECT * FROM ROOM;
+ 
+-- Erot 3:
+UPDATE CUSTOMER SET CstName='Adamoglou Katerina', CstAge=22 WHERE CstId=3;
+
+SELECT * FROM CUSTOMER;
+
+-- Erot 4:
+UPDATE CUSTOMER SET CstName='Marinakis Eyaggelos', CstAge=38 WHERE CstName='Makaridis Nick';
+
+SELECT * FROM CUSTOMER;
+
+-- Erot 5:
+ALTER TABLE ROOM ADD COLUMN Beds INT DEFAULT 2;
+
+DESCRIBE ROOM;
+
+-- Erot 6:
+UPDATE ROOM SET Beds=3 WHERE RmId=1 OR RmId=3;
+
+DESCRIBE ROOM;
+
+-- Erot 7:
+CREATE TABLE BOOK(
+	ID INT NOT NULL,
+    Cid INT NOT NULL,
+    Rid INT NOT NULL,
+    BkDate DATE NOT NULL,
+    PRIMARY KEY (ID),
+    FOREIGN KEY (Cid) REFERENCES CUSTOMER (CstId),
+    FOREIGN KEY (Rid) REFERENCES ROOM(RmId)
+);
+
+SHOW TABLES;
+
+-- Erot 8:
+INSERT INTO BOOK VALUES
+			(1,3,2,'2018-5-18'),
+			(2,3,3,'2018-1-10'),
+			(3,4,1,'2019-5-7');
+            
+SELECT * FROM BOOK;
+
+-- Erot 9:
+ALTER TABLE BOOK DROP FOREIGN KEY book_ibfk_1;
+DELETE FROM CUSTOMER WHERE CstId=4;
+
+SELECT * FROM CUSTOMER;
+
+-- Erot 10:
+CREATE TABLE ACCOMPANIED(
+	ID INT NOT NULL,
+	AcId INT NOT NULL,
+	AcName VARCHAR(50) NOT NULL,
+	AcAge DECIMAL(3,1) NULL,
+    PRIMARY KEY (ID),
+    FOREIGN KEY (AcId) REFERENCES CUSTOMER (CstId)
+);
+
+SHOW TABLES;
+
+-- Erot 11:
+INSERT INTO ACCOMPANIED VALUES
+			(1,2,'Baso',9),
+			(2,2,'Anastasia',15),
+            (3,5,'Kostas',12),
+			(4,5,'Pipina',16);
+            
+SELECT * FROM ACCOMPANIED;
