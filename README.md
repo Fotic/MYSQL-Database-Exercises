@@ -4,4 +4,4 @@
 >Ειδικά Θέματα Βάσεων Δεδομένων
 
 ## 📝Notes
->WebAPP Text Language: Greek
+>WebAPP & Presentation Text Language: Greek
