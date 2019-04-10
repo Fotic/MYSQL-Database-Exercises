@@ -8,7 +8,7 @@
 
 ## 🔀 Navigation
 
-| Exercises | Assignment |
+| No | Assignment |
 | :---: | :---: |
 | 01 | [Exercise_1](https://github.com/Fotic/MYSQL-Database-Exercises/tree/master/Exercise%201) ✅
 | 02 | [Exercise_2](https://github.com/Fotic/MYSQL-Database-Exercises/tree/master/Exercise%202) ✅ 
